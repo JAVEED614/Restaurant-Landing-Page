@@ -1,0 +1,259 @@
+/* 
+    The Hearth & Harvest - Custom Styles
+    Rustic Traditional Aesthetic
+*/
+/* FIX HERO START POSITION */
+:root {
+    --primary-color: #D2691E; /* Terracotta */
+    --secondary-color: #2E8B57; /* Forest Green */
+    --bg-color: #FFF8F0; /* Cream */
+    --text-color: #3E2723; /* Dark Brown */
+    --light-text: #6D4C41;
+    --white: #FFFFFF;
+    --dark-bg: #1A120B;
+    --dark-card: #2C1E12;
+    --transition: all 0.3s ease;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --bg-color: var(--dark-bg);
+    --text-color: #EADBC8;
+    --light-text: #D2B48C;
+    --white: #2C1E12;
+    --card-bg: #2C1E12;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+.playfair {
+    font-family: 'Playfair Display', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+/* Navigation */
+.navbar {
+    background-color: rgba(255, 248, 240, 0.95) !important;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .navbar {
+    background-color: rgba(26, 18, 11, 0.95) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: var(--primary-color) !important;
+}
+
+.nav-link {
+    font-weight: 700;
+    color: var(--text-color) !important;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background: 
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('https://res.cloudinary.com/jerrick/image/upload/v1760427242/68edfce912aeed001d17f01e.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.hero-section {
+    margin-top: -80px;
+    padding-top: 80px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #B35A1A;
+    border-color: #B35A1A;
+}
+
+/* Animations */
+.animate-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* About Section */
+.about-image-wrapper img {
+    border: 10px solid var(--white);
+}
+
+.experience-badge {
+    min-width: 150px;
+    text-align: center;
+}
+
+/* Menu Cards */
+.menu-card {
+    background-color: var(--white);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+.menu-card img {
+    height: 250px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.menu-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Gallery */
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    transition: var(--transition);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(210, 105, 30, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Testimonials */
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+}
+
+/* Forms */
+.form-control, .form-select {
+    background-color: var(--white);
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 0.8rem 1rem;
+    color: var(--text-color);
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: var(--white);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(210, 105, 30, 0.25);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .form-control, 
+[data-theme="dark"] .form-select {
+    background-color: #3E2723;
+    border-color: #5D4037;
+    color: #EADBC8;
+}
+
+/* Footer */
+.footer-links a:hover {
+    color: var(--primary-color) !important;
+    padding-left: 5px;
+}
+
+.footer-links a {
+    transition: var(--transition);
+}
+
+/* Accessibility */
+:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .display-1 {
+        font-size: 3.5rem;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+}
